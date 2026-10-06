@@ -1,0 +1,16 @@
+<!doctype html>
+<meta charset="utf-8">
+<style>html,body{margin:0;background:#111;overflow:hidden}canvas{display:block;width:100vw;height:100vh;object-fit:contain}</style>
+<canvas id="frame" width="1920" height="1080"></canvas>
+<video id="video" style="display:none" muted preload="auto" src="file:///C:/Users/Amith/Downloads/Recording%202026-10-04%20221047.mp4"></video>
+<script>
+  const video=document.querySelector('#video'),canvas=document.querySelector('#frame');
+  const requested=Number(new URLSearchParams(location.search).get('t')||0);
+  video.addEventListener('loadedmetadata',()=>{video.currentTime=Math.min(requested,video.duration-.04)});
+  video.addEventListener('seeked',()=>{
+    const scale=Math.min(canvas.width/video.videoWidth,canvas.height/video.videoHeight);
+    const w=video.videoWidth*scale,h=video.videoHeight*scale,x=(canvas.width-w)/2,y=(canvas.height-h)/2;
+    canvas.getContext('2d').drawImage(video,x,y,w,h);
+    document.body.dataset.ready='true';
+  });
+</script>
