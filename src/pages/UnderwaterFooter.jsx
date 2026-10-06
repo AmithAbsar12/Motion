@@ -24,6 +24,21 @@ const koiModelUrl = new URL(
   import.meta.url,
 ).href;
 
+function LoopingUnderwaterVideo() {
+  return (
+    <video
+      className="ocean-backdrop ocean-backdrop-video"
+      src="/concept-4/underwater-2%20-%20merge%20-%20final.mp4"
+      poster="/concept-4/underwater-recording-clean.png"
+      autoPlay
+      loop
+      muted
+      playsInline
+      preload="auto"
+    />
+  );
+}
+
 function KoiFish({ scrollProgress, revealProgress, reduced }) {
   const fish = useRef();
   const model = useRef();
@@ -182,7 +197,9 @@ function KoiFish({ scrollProgress, revealProgress, reduced }) {
 
     if (model.current) {
       const scaleEase = reveal * reveal * (3 - 2 * reveal);
-      model.current.scale.setScalar(THREE.MathUtils.lerp(0.15, 0.58, scaleEase));
+      model.current.scale.setScalar(
+        THREE.MathUtils.lerp(0.15, 0.58, scaleEase),
+      );
       model.current.rotation.z = reduced ? 0 : Math.sin(time * 0.9) * 0.012;
     }
   });
@@ -406,7 +423,11 @@ export default function UnderwaterFooter() {
             </div>
 
             <div className="contact-pill">
-              <a href="https://funkyvibes.co.uk/contact/" target="_blank" rel="noreferrer">
+              <a
+                href="https://funkyvibes.co.uk/contact/"
+                target="_blank"
+                rel="noreferrer"
+              >
                 <small>BOOK</small>
                 <b>CALL</b>
                 <span aria-hidden="true">●</span>
@@ -425,7 +446,15 @@ export default function UnderwaterFooter() {
 
           <footer className="ocean-stage">
             <div className="ocean-backdrop-motion" aria-hidden="true">
-              <img className="ocean-backdrop ocean-backdrop-static" src="/concept-4/underwater-recording-clean.png" alt="" />
+              {reduced ? (
+                <img
+                  className="ocean-backdrop"
+                  src="/concept-4/underwater-recording-clean.png"
+                  alt=""
+                />
+              ) : (
+                <LoopingUnderwaterVideo />
+              )}
             </div>
 
             <div className="ocean-light" aria-hidden="true" />
@@ -471,10 +500,30 @@ export default function UnderwaterFooter() {
                     target="_blank"
                     rel="noreferrer"
                   >
-                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.35" cy="6.65" r="1" className="instagram-dot"/></svg>
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="5" />
+                      <circle cx="12" cy="12" r="4" />
+                      <circle
+                        cx="17.35"
+                        cy="6.65"
+                        r="1"
+                        className="instagram-dot"
+                      />
+                    </svg>
                   </a>
 
-                  <a className="social-icon" href="#facebook" aria-label="Facebook"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.7 21v-8h2.7l.4-3.1h-3.1V8c0-.9.3-1.5 1.6-1.5H17V3.7c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V9.9H8v3.1h2.8v8h2.9Z" fill="currentColor"/></svg></a>
+                  <a
+                    className="social-icon"
+                    href="#facebook"
+                    aria-label="Facebook"
+                  >
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <path
+                        d="M13.7 21v-8h2.7l.4-3.1h-3.1V8c0-.9.3-1.5 1.6-1.5H17V3.7c-.3 0-1.2-.1-2.3-.1-2.3 0-3.9 1.4-3.9 4V9.9H8v3.1h2.8v8h2.9Z"
+                        fill="currentColor"
+                      />
+                    </svg>
+                  </a>
 
                   <a
                     href="https://www.linkedin.com/company/funky-vibes-marketing/"
@@ -486,7 +535,11 @@ export default function UnderwaterFooter() {
                   </a>
                 </div>
 
-                <a href="https://funkyvibes.co.uk/terms-and-conditions/" target="_blank" rel="noreferrer">
+                <a
+                  href="https://funkyvibes.co.uk/terms-and-conditions/"
+                  target="_blank"
+                  rel="noreferrer"
+                >
                   Terms &amp; Conditions
                 </a>
 
