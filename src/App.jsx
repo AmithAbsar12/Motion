@@ -8,10 +8,10 @@ const FantasyMap = lazy(() => import('./pages/FantasyMap'))
 const UnderwaterFooter = lazy(() => import('./pages/UnderwaterFooter'))
 
 const concepts = [
-  ['01', 'Banner reveal', '/concept-1'],
-  ['02', 'Card flip', '/concept-2'],
-  ['03', 'Fantasy map', '/concept-3'],
-  ['04', 'Underwater footer', '/concept-4'],
+  ['01', 'Ever After', '/ever-after'],
+  ['02', 'Card Flip', '/card-flip'],
+  ['03', 'World Wander', '/world-wander'],
+  ['04', 'Under Water', '/under-water'],
 ]
 
 function ScrollReset() {
@@ -24,7 +24,7 @@ function ScrollReset() {
 
 function ConceptNav() {
   const { pathname } = useLocation()
-  if (pathname === '/' || pathname === '/concept-3' || pathname === '/concept-4') return null
+  if (pathname === '/' || pathname === '/world-wander' || pathname === '/under-water') return null
   return (
     <nav className="concept-nav" aria-label="Concept navigation">
       <Link className="concept-nav__home" to="/">MOTION STUDIES</Link>
@@ -45,10 +45,14 @@ export default function App() {
       <Suspense fallback={<div className="route-loader"><span>Loading experience</span></div>}>
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="/concept-1" element={<BannerReveal />} />
-          <Route path="/concept-2" element={<CardFlip />} />
-          <Route path="/concept-3" element={<FantasyMap />} />
-          <Route path="/concept-4" element={<UnderwaterFooter />} />
+          <Route path="/ever-after" element={<BannerReveal />} />
+          <Route path="/card-flip" element={<CardFlip />} />
+          <Route path="/world-wander" element={<FantasyMap />} />
+          <Route path="/under-water" element={<UnderwaterFooter />} />
+          <Route path="/concept-1" element={<Navigate to="/ever-after" replace />} />
+          <Route path="/concept-2" element={<Navigate to="/card-flip" replace />} />
+          <Route path="/concept-3" element={<Navigate to="/world-wander" replace />} />
+          <Route path="/concept-4" element={<Navigate to="/under-water" replace />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </Suspense>

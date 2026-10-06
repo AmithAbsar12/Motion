@@ -4269,3 +4269,70 @@ body:has(.cards-page) .concept-nav {
   background: #f5f1e6e6;
   text-shadow: none;
 }
+
+/* Small-screen containment: keep each opening composition inside its viewport. */
+@media (max-width: 560px) {
+  .skip-button {
+    position: fixed;
+    left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    max-width: calc(100vw - 24px);
+    white-space: nowrap;
+  }
+
+  .lusion-header {
+    top: 3vh;
+    left: 5vw;
+    right: 5vw;
+  }
+  .lusion-header nav .header-orb,
+  .lusion-header nav button:not(.header-orb) {
+    display: none;
+  }
+  .lusion-header a {
+    padding: 0.56rem 0.78rem;
+    font-size: 0.55rem;
+  }
+  .studio-word {
+    top: 1vh;
+    left: 5vw;
+    font-size: 22vw;
+  }
+  .expertise-title {
+    top: 66vh;
+    left: 5vw;
+    width: 90vw;
+    font-size: 14vw;
+  }
+  .expertise-copy {
+    display: none;
+  }
+
+  .fm-header {
+    grid-template-columns: minmax(0, 1fr) 110px;
+    padding: 0 0 0 4vw;
+  }
+  .fm-plan {
+    position: absolute;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    width: 92px;
+    height: 100%;
+    font-size: 0.63rem;
+  }
+
+  .cta-stage {
+    padding-inline: 7vw;
+  }
+  .cta-copy h1 {
+    font-size: min(13vw, 4rem);
+    line-height: 0.9;
+  }
+  .cta-stage .contact-pill {
+    width: min(72vw, 320px);
+    max-width: 100%;
+    align-self: center;
+  }
+}

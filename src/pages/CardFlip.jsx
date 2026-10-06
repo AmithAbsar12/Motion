@@ -265,7 +265,7 @@ export default function CardFlip() {
             <button className="header-orb" aria-label="Previous">
               −
             </button>
-            <a href="mailto:hello@lusion.co">LET'S TALK ↗</a>
+            <a href="mailto:FINDMYTRIBE@FUNKYVIBES.CO.UK">LET'S TALK ↗</a>
             <button>MENU ↗</button>
           </nav>
         </header>
