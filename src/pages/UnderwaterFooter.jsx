@@ -14,7 +14,7 @@ const services = [
 
 const company = [
   ["How We Work", "https://funkyvibes.co.uk/our-tribe/"],
-  ["Resource Hub", "https://funkyvibes.co.uk/creative-juice/"],
+  ["Resource Hub", "https://funkyvibes.co.uk/"],
   ["About Us", "https://funkyvibes.co.uk/our-tribe/"],
   ["Contact Us", "https://funkyvibes.co.uk/contact/"],
 ];
