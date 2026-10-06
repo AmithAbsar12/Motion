@@ -526,7 +526,7 @@ export default function UnderwaterFooter() {
                   </a>
 
                   <a
-                    href="https://www.linkedin.com/company/funky-vibes-marketing/"
+                    href="https://www.linkedin.com/company/funkyvibesmarketing/"
                     aria-label="LinkedIn"
                     target="_blank"
                     rel="noreferrer"
